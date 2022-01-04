@@ -1,0 +1,25 @@
+.section_container {
+  /* --background: #ffff;
+    background: var(--background); */
+  /* width: 900px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+}
+.not_find_recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+
+  min-height: 490px;
+  width: 100%;
+
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}

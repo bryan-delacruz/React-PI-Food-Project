@@ -1,0 +1,14 @@
+.dieta_order {
+  margin-left: 20px;
+}
+.order_label {
+  font-size: 16px;
+  text-align: left;
+}
+select {
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-size: 17px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.125);
+}

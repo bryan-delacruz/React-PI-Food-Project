@@ -1,0 +1,76 @@
+.detail_main {
+  width: 1220px;
+  background-color: #ffff;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 20px;
+
+  position: relative;
+  height: 100%;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 312px;
+  height: 312px;
+  margin-right: 80px;
+}
+
+.detail_section {
+  padding: 40px 20px;
+}
+.card {
+  display: block;
+  width: 600px;
+}
+.score {
+  font-size: 13px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+.summary {
+  margin-bottom: 20px;
+}
+.summary h5 {
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.summary p {
+  text-align: justify;
+  font-size: 13px;
+}
+.green {
+  color: #8fca00;
+}
+
+.steps {
+  font-size: 14px;
+}
+.steps p {
+  text-align: justify;
+  margin-bottom: 10px;
+  /* text-transform: capitalize; */
+}
+.steps span {
+  color: #8fca00;
+}
+.not_find_recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+  min-height: 500px;
+  width: 100%;
+
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}

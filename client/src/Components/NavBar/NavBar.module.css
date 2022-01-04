@@ -1,0 +1,76 @@
+/*---------------------------------------*/
+/* NAVBAR*/
+/*---------------------------------------*/
+@import "./../../css/variables.css";
+
+.nav {
+  background-color: var(--navBgColor);
+  margin-bottom: 20px;
+}
+.nav_container {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+}
+
+.button {
+  border: none;
+  height: var(--navHeight);
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffff;
+  background-color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  border-radius: var(--navBorderSize);
+  cursor: pointer;
+  margin-right: 20px;
+  padding: 0 10px;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+.button:hover,
+.button:active {
+  background-color: var(--secundaryColor);
+}
+
+.nav_form {
+  font-size: 18px;
+  font-weight: lighter;
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+}
+.nav_input {
+  width: 600px;
+  padding-left: 10px;
+  font-size: 15px;
+  border: 1px solid var(--navBorderColor);
+  border-radius: var(--navBorderSize) 0 0 var(--navBorderSize);
+  border-right: none;
+
+  background: var(--navInputBgColor);
+  color: var(--navInputColor);
+  outline: none;
+}
+.nav_input:focus {
+  border: 1px solid var(--primaryColor);
+}
+.nav_button {
+  width: var(--navHeight);
+  height: var(--navHeight);
+
+  border: 1px solid var(--primaryColor);
+  border-radius: 0 var(--navBorderSize) var(--navBorderSize) 0;
+  border-left: none;
+
+  background-color: var(--primaryColor);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+.nav_button:hover,
+.nav_button:active {
+  background-color: var(--secundaryColor);
+}
+.nav_img {
+  width: var(--navHeight) * 0.5;
+  height: var(--navHeight) * 0.5;
+}

@@ -1,0 +1,36 @@
+/*---------------------------------------*/
+/* HOME*/
+/*---------------------------------------*/
+@import "./../../css/variables.css";
+
+.home_container {
+  padding-top: 20px;
+  padding-bottom: 44px;
+}
+
+.home_main {
+  /* max-width: 1280px; */
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+}
+
+.home_pag_card {
+  width: 900px;
+}
+
+.home_footer_cards {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  align-items: center;
+
+  height: 70px;
+  background-color: white;
+}

@@ -1,0 +1,26 @@
+.home_footer {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #222;
+  color: #ffff;
+
+  position: absolute;
+  width: 100%;
+  bottom: 0; /* stick to bottom */
+}
+.home_footer_div {
+  max-width: 1216px;
+  height: 44px;
+  font-size: 15px;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  align-items: center;
+}
+.home_footer_div p{
+  margin-right: 20px;
+}

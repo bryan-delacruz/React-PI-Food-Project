@@ -1,0 +1,25 @@
+.button_active {
+  border-radius: 15px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+  font-size: 14px;
+  background-color: #8fca00;
+  color: white;
+}
+.button {
+  border-radius: 15px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: black;
+  margin-right: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+.button:hover {
+  background-color: gainsboro;
+}

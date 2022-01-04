@@ -1,0 +1,27 @@
+.container_spin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+  min-height: 490px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  height: 82%;
+  animation-name: spinning;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  /* linear | ease | ease-in | ease-out | ease-in-out */
+  animation-timing-function: linear;
+}

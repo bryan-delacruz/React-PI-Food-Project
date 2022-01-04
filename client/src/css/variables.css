@@ -1,0 +1,15 @@
+:root {
+  --primaryColor: #8fca00;
+  --secundaryColor: #699600;
+
+  --color: #333;
+
+  --homegBg: #eeeeee;
+
+  --navBgColor: #f8f8f8;
+  --navInputBgColor: #ffff;
+  --navHeight: 44px;
+  --navInputColor: #333;
+  --navBorderColor: rgba(0, 0, 0, 0.125);
+  --navBorderSize: 0.25rem;
+}

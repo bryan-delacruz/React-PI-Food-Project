@@ -1,0 +1,38 @@
+@import "./../../css/variables.css";
+
+.alert {
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid #e20041;
+    border-radius: var(--navBorderSize);
+    background: var(--navInputBgColor);
+    color: #e20041;
+    outline: none;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 8px;
+}
+.warning {
+  font-size: 12px;
+  padding: 2px 10px;
+  border: 1px solid #f2ae12;
+  border-radius: var(--navBorderSize);
+  background: var(--navInputBgColor);
+  color: #f2ae12;
+  outline: none;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 8px;
+}
+.li_data {
+    margin-right: 10px;
+    text-overflow: clip;
+    align-self: center;
+  }
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
