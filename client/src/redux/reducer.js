@@ -65,6 +65,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         payload,
         state.filters_and_order
       );
+      // dffdf
       return {
         ...state,
         recipes: currentRecipes,
