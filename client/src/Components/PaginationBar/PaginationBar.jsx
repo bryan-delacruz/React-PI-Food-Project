@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import PaginationButton from "../PaginationButton/PaginationButton";
 import arrowLeft from "./svg/arrowLeft.svg";
 import arrowRight from "./svg/arrowRight.svg";
+import PaginationButton from "../PaginationButton/PaginationButton";
 
 import { set_current_items_by_page } from "../../redux/actions";
 
