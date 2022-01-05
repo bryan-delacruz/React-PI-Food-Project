@@ -7,13 +7,13 @@ import style from "./SideBar.module.css";
 const SideBar = () => {
   let diets = useSelector((state) => state.diets);
   let filters_and_order = useSelector((state) => state.filters_and_order);
-
   const dispatch = useDispatch();
 
   const handleCheck = (e) => {
     let obj = { ...filters_and_order, [e.target.name]: e.target.checked };
     dispatch(filterRecipes(obj));
   };
+
   const retirarFiltros = (e) => {
     let obj = {
       ...filters_and_order,
@@ -32,7 +32,7 @@ const SideBar = () => {
 
   return (
     <aside className={style.aside}>
-      <form action="" className={style.dieta_filter}>
+      <form className={style.dieta_filter}>
         <p className={style.dieta_title}>Tipo de Dieta: </p>
         {diets.length > 0
           ? diets.map((e, i) => {
