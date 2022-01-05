@@ -1,11 +1,10 @@
 import React from "react";
 
-import style from "./DetailPage.module.css";
-
-import FooterBar from "../../Components/FooterBar/FooterBar";
-import RecipeDetail from "../../Components/RecipeDetail/RecipeDetail";
 import NavBar from "../../Components/NavBar/NavBar";
+import RecipeDetail from "../../Components/RecipeDetail/RecipeDetail";
+import FooterBar from "../../Components/FooterBar/FooterBar";
 
+import style from "./DetailPage.module.css";
 
 const DetailPage = () => {
   return (
