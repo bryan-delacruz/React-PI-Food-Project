@@ -2,7 +2,37 @@ import React from "react";
 
 import Alert from "../Alert/Alert";
 
-const FormCreateRecipeInputs = ({ form, alert, handleInputs,style }) => {
+const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
+  const handleInputs = (e) => {
+    if (
+      (e.target.name === "spoonacularScore" ||
+        e.target.name === "healthScore") &&
+      (e.target.value < 1 || e.target.value > 100)
+    ) {
+      setAlert({ ...alert, [e.target.name]: true });
+    } else if (
+      (e.target.name === "spoonacularScore" ||
+        e.target.name === "healthScore") &&
+      (e.target.value >= 1 || e.target.value <= 100)
+    ) {
+      setAlert({ ...alert, [e.target.name]: false });
+    }
+
+    if (
+      (e.target.name === "title" || e.target.name === "summary") &&
+      e.target.value.length < 1
+    ) {
+      setAlert({ ...alert, [e.target.name]: true });
+    } else if (
+      (e.target.name === "title" || e.target.name === "summary") &&
+      e.target.value.length >= 1
+    ) {
+      setAlert({ ...alert, [e.target.name]: false });
+    }
+
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className={style.inputs}>
       <div className={style.mb_20}>
