@@ -45,7 +45,7 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_RECIPES: {
-      let currentRecipes = order(payload, state.filters_and_order.byTitle);
+      let currentRecipes = order(payload, state.filters_and_order.byOrder);
       return {
         ...state,
         recipes: payload,
