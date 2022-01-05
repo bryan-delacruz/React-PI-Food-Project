@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { getRecipesByName } from "../../redux/actions";
 
-import style from "./NavBar.module.css";
 import find from "./svg/find.svg";
+
+import style from "./NavBar.module.css";
 
 const NavBar = () => {
   const filters_and_order = useSelector((state) => state.filters_and_order);
