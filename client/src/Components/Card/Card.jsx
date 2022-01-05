@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import style from "./Card.module.css";
 
 const Card = ({ id, title, image, diets }) => {
