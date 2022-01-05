@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import style from "./CardsContainer.module.css";
 
 import Card from "../Card/Card";
 import Spinner from "../Spinner/Spinner";
+
+import style from "./CardsContainer.module.css";
 
 const CardsContainer = () => {
   let currentItems = useSelector((state) => state.currentItems);
