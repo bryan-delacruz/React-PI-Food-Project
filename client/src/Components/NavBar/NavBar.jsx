@@ -20,7 +20,6 @@ const NavBar = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
     let obj = {
       ...filters_and_order,
       byTitle: input,
