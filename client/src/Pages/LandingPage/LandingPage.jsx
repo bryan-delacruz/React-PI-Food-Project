@@ -9,7 +9,9 @@ const LandingPage = () => {
       <div className={style.hero_text_box}>
         <h1>welcome</h1>
         <Link to="/home">
-          <button className={`${style.btn} ${style.btn_full}`}>Home</button>
+          <button className={`${style.btn} ${style.btn_full}`}>
+            Go To Home
+          </button>
         </Link>
       </div>
     </header>
