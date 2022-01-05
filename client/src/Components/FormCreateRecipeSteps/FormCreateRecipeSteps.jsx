@@ -73,19 +73,24 @@ const FormCreateRecipeSteps = ({ form, setForm, alert, setAlert, style }) => {
     <form onSubmit={modoEdicion ? editar : agregar} className={style.steps}>
       <div>
         <p className={style.dieta_title}>
-          {modoEdicion ? "Editar step" : "Agregar step"}
+          {modoEdicion ? "Edit step" : "Add step"}
         </p>
         <div className={style.mb_20}>
           <input
             ref={inputEl}
             type="text"
-            placeholder="Ingrese step"
+            placeholder="Enter a step"
             className={style.input_step}
             onChange={(e) => handleInputStep(e)}
             value={step}
           />
           {alert.steps === true && (
-            <Alert warning={true} text={`máximo 48 caracteres`} width={500} />
+            <Alert
+              warning={true}
+              text={`
+            maximum 48 characters`}
+              width={500}
+            />
           )}
         </div>
 
@@ -95,11 +100,11 @@ ${modoEdicion ? "btn btn-warning w-100" : "btn btn-dark w-100"}`}
           type="button"
           onClick={modoEdicion ? editar : agregar}
         >
-          {modoEdicion ? "Editar" : "Agregar"}
+          {modoEdicion ? "Edit" : "Add"}
         </button>
       </div>
 
-      <p className={style.dieta_title}>Lista de Steps</p>
+      <p className={style.dieta_title}>Steps's List</p>
       <ul className="list-group">
         {form.steps.length > 0 ? (
           form.steps.map((item) => (
@@ -128,7 +133,7 @@ ${modoEdicion ? "btn btn-warning w-100" : "btn btn-dark w-100"}`}
         ) : (
           <>
             <li key={1} className={`${style.li}`}>
-              <div>the recipe don't have a step added</div>
+              <div>The recipe don't have a step added</div>
             </li>
           </>
         )}

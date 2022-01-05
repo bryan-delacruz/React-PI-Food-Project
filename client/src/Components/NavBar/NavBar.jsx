@@ -30,7 +30,7 @@ const NavBar = () => {
           <button className={style.button}>Home</button>
         </Link>
         <Link to="/createRecipe" style={{ textDecoration: "none" }}>
-          <button className={style.button}>Crear Receta</button>
+          <button className={style.button}>Create Recipe</button>
         </Link>
         <form className={style.nav_form} onSubmit={(e) => handleOnSubmit(e)}>
           <input
@@ -38,7 +38,7 @@ const NavBar = () => {
             name="title"
             type="text"
             className={style.nav_input}
-            placeholder="Ingresar receta"
+            placeholder="Enter a recipe"
           />
           <button type="submit" className={style.nav_button}>
             <img className={style.nav_img} src={find} alt="find-icon" />

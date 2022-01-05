@@ -45,7 +45,7 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
           value={form.title}
         />
         {alert.title === true && (
-          <Alert text={`campo obligatorio`} width={140} />
+          <Alert text={`Mandatory Field`} width={140} />
         )}
       </div>
       <div className={style.mb_20}>
@@ -59,7 +59,7 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
           value={form.summary}
         ></textarea>
         {alert.summary === true && (
-          <Alert text={`campo obligatorio`} width={140} />
+          <Alert text={`Mandatory Field`} width={140} />
         )}
       </div>
       <div className={`${style.flex_score} ${style.score}`}>
@@ -72,7 +72,7 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
             value={form.spoonacularScore}
           />
           {alert.spoonacularScore === true && (
-            <Alert warning={true} text={`range: 0 - 100`} width={140} />
+            <Alert warning={true} text={`Range: 0 - 100`} width={140} />
           )}
         </div>
         <div>
@@ -84,7 +84,7 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
             value={form.healthScore}
           />
           {alert.healthScore === true && (
-            <Alert warning={true} text={`range: 0 - 100`} width={140} />
+            <Alert warning={true} text={`Range: 0 - 100`} width={140} />
           )}
         </div>
       </div>

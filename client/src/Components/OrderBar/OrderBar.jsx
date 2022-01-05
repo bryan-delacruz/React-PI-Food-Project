@@ -20,22 +20,19 @@ const OrderBar = () => {
   return (
     <div>
       <div className={style.dieta_order}>
-        <p className={style.order_label}>Ordenar por: </p>
-        <select
-          className={style.select}
-          onChange={(e) => handleOrder(e)}
-        >
+        <p className={style.order_label}>Sort by: </p>
+        <select className={style.select} onChange={(e) => handleOrder(e)}>
           <option className={style.option} value="orderHigScore">
-            De Mayor a Menor puntuación
+            Score: high to low
           </option>
           <option className={style.option} value="orderSmaScore">
-            De Menor a Mayor puntuación
+            Score: low to high
           </option>
           <option className={style.option} value="orderAsc">
-            De A a la Z
+            From A to Z
           </option>
           <option className={style.option} value="orderDes">
-            De Z a la A
+            From Z to A
           </option>
         </select>
       </div>

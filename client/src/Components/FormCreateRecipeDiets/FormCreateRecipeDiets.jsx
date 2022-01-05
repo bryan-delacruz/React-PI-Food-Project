@@ -18,7 +18,7 @@ const FormCreateRecipeDiets = ({ form, setForm, style }) => {
   return (
     <div>
       <div className={style.dieta_filter}>
-        <p className={style.dieta_title}>Tipo de Dieta: </p>
+        <p className={style.dieta_title}>Diets</p>
         {diets.length > 0
           ? diets.map((e, i) => {
               let prop = e.replaceAll(" ", "_");

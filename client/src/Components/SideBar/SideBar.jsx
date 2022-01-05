@@ -33,7 +33,7 @@ const SideBar = () => {
   return (
     <aside className={style.aside}>
       <form className={style.dieta_filter}>
-        <p className={style.dieta_title}>Tipo de Dieta: </p>
+        <p className={style.dieta_title}>Diets</p>
         {diets.length > 0
           ? diets.map((e, i) => {
               let prop = e.replaceAll(" ", "_");
@@ -60,7 +60,7 @@ const SideBar = () => {
         className={style.aside_removeFilter}
         onClick={() => retirarFiltros()}
       >
-        Retirar todos los filtros
+        Deselect all diets
       </button>
       <div className={style.aside_block}></div>
     </aside>
