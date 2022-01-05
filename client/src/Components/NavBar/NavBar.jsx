@@ -4,7 +4,7 @@ import style from "./NavBar.module.css";
 import find from "./svg/find.svg";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getRecipesByName } from "../../redux/actions";
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
+  const filters_and_order = useSelector((state) => state.filters_and_order);
   const [input, setInput] = useState("");
 
   const handleInputChange = (e) => {
@@ -19,7 +20,12 @@ const NavBar = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(getRecipesByName(input));
+    console.log(input);
+    let obj = {
+      ...filters_and_order,
+      byTitle: input,
+    };
+    dispatch(getRecipesByName(obj));
     navigate("/home");
   };
   return (
