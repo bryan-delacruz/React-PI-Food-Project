@@ -1,6 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const FormCreateRecipeDiets = ({ diets, handleInputCheckBox, style }) => {
+const FormCreateRecipeDiets = ({ form, setForm, style }) => {
+  let diets = useSelector((state) => state.diets);
+
+  const handleInputCheckBox = (e) => {
+    if (e.target.checked === true) {
+      form.diets.push(e.target.value);
+      setForm({ ...form });
+    } else {
+      setForm({
+        ...form,
+        diets: form.diets.filter((diet) => diet !== e.target.value),
+      });
+    }
+  };
   return (
     <div>
       <div className={style.dieta_filter}>
