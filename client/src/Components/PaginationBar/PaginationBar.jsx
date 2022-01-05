@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { set_current_items_by_page } from "../../redux/actions";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import PaginationButton from "../PaginationButton/PaginationButton";
 import arrowLeft from "./svg/arrowLeft.svg";
 import arrowRight from "./svg/arrowRight.svg";
 
+import { set_current_items_by_page } from "../../redux/actions";
+
 import style from "./PaginationBar.module.css";
-import PaginationButton from "../PaginationButton/PaginationButton";
 
 const PaginationBar = () => {
-  let state = useSelector((state) => state);
-  let { itemsPerPage, currentPage, currentRecipes } = state;
-
-  let [input, setInput] = useState("");
+  let currentPage = useSelector((state) => state.currentPage);
+  let itemsPerPage = useSelector((state) => state.itemsPerPage);
+  let currentRecipes = useSelector((state) => state.currentRecipes);
+  const dispatch = useDispatch();
 
   let pageNumbers = [];
-
   if (currentRecipes.length <= itemsPerPage) {
     pageNumbers.push(1);
   } else {
@@ -23,21 +24,14 @@ const PaginationBar = () => {
     }
   }
 
-  const dispatch = useDispatch();
-
-  const changeCurrentPage = (e) => {
-    let number = +e.target.value;
-    dispatch(set_current_items_by_page(number));
-  };
-
-  const prevPage = (e) => {
-    e.preventDefault();
+  const prevPage = () => {
     let number = +currentPage - 1;
     if (number < 1) {
       return null;
     }
     dispatch(set_current_items_by_page(number));
   };
+
   const nextPage = () => {
     let number = +currentPage + 1;
     if (number > pageNumbers.length) {
@@ -46,23 +40,18 @@ const PaginationBar = () => {
     dispatch(set_current_items_by_page(number));
   };
 
-  const handleInput = (e) => {
-    setInput(e.target.value);
+  const changeCurrentPage = (e) => {
+    let number = +e.target.value;
+    dispatch(set_current_items_by_page(number));
   };
 
   const handlePageButton = (e) => {
     e.preventDefault();
-    dispatch(set_current_items_by_page(+input));
-    setInput("");
+    dispatch(set_current_items_by_page(+e.target.inputNumberPage.value));
   };
   return (
     <nav className={style.nav_pagination}>
-      <button
-        className={style.button_arrow}
-        value="prev"
-        type="button"
-        onClick={(e) => prevPage(e)}
-      >
+      <button className={style.button_arrow} onClick={(e) => prevPage(e)}>
         <img src={arrowLeft} alt="arrow-left" />
       </button>
       {pageNumbers.map((number) => {
@@ -783,25 +772,19 @@ const PaginationBar = () => {
             return null;
         }
       })}
-      <button
-        className={style.button_arrow}
-        value="next"
-        onClick={() => nextPage()}
-      >
+      <button className={style.button_arrow} onClick={() => nextPage()}>
         <img src={arrowRight} alt="arrow-right" />
       </button>
       <div className={style.flex}>
         <form action="submit" onSubmit={(e) => handlePageButton(e)}>
           <input
             type="number"
-            name="input"
+            name="inputNumberPage"
             className={style.nav_input}
-            value={input}
             min="1"
             max={pageNumbers.length}
-            onChange={(e) => handleInput(e)}
           />
-          <button className={style.nav_button} type="button">
+          <button className={style.nav_button} type="submit">
             Go
           </button>
         </form>
