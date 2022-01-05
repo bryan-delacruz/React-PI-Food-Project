@@ -88,7 +88,7 @@ const FormCreateRecipeSteps = ({ form, setForm, alert, setAlert, style }) => {
             <Alert
               warning={true}
               text={`
-            maximum 48 characters`}
+            Maximum 48 characters`}
               width={500}
             />
           )}
