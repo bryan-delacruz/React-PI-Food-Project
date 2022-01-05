@@ -1,6 +1,7 @@
 /*---------------------------------------*/
 /* HEADER*/
 /*---------------------------------------*/
+@import "../../css/variables.css";
 .header {
   background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.7)),
     url(img/hero.jpg);
@@ -24,12 +25,12 @@
 .btn {
   border-radius: 200px;
   padding: 10px 30px;
-  background-color: #e67e22;
-  border: 1px solid #e67e22;
+  background-color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
   color: #fff;
   transition: background-color 0.2s, color 0.2s, border 0.2s;
 }
 .btn:hover,
 .btn:active {
-  background-color: #cf6d17;
+  background-color: var(--secundaryColor);
 }
