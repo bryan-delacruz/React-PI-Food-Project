@@ -53,11 +53,16 @@ export const createRecipe = (data) => async (dispatch) => {
     console.log(error);
   }
 };
-export const getRecipesByName = (input) => async (dispatch) => {
+export const getRecipesByName = (filters_and_order) => async (dispatch) => {
   try {
-    let { data } = await axios.get(`/recipes?name=${input}`);
+    let { data } = await axios.get(
+      `/recipes?name=${filters_and_order.byTitle}`
+    );
     console.log("RECIPES_BY_NAME", "Se envía data de la API");
-    return dispatch({ type: GET_RECIPES_BY_NAME, payload: data });
+    return dispatch({
+      type: GET_RECIPES_BY_NAME,
+      payload: { data, filters_and_order },
+    });
   } catch (error) {
     console.log(error);
   }

@@ -8,8 +8,10 @@ import {
   GET_RECIPE_BY_ID,
   GET_RECIPES_BY_NAME,
 } from "./actions";
+import { filterByDiet } from "./services/filterByDiet";
 
 import { handleCurrentRecipes } from "./services/handleCurrentRecipes";
+import { order } from "./services/order";
 
 const initialState = {
   recipes: [],
@@ -17,6 +19,7 @@ const initialState = {
   currentRecipes: [],
 
   filters_and_order: {
+    byTitle: "",
     gluten_free: false,
     dairy_free: false,
     lacto_ovo_vegetarian: false,
@@ -42,13 +45,10 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_RECIPES: {
-      let currentRecipes = handleCurrentRecipes(
-        payload,
-        state.filters_and_order
-      );
+      let currentRecipes = order(payload, state.filters_and_order.byTitle);
       return {
         ...state,
-        recipes: currentRecipes,
+        recipes: payload,
         currentRecipes: currentRecipes,
         currentItems: currentRecipes.slice(0, state.itemsPerPage),
         loader: { ...state.loader, recipes: true },
@@ -61,14 +61,22 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
     }
     case GET_RECIPES_BY_NAME: {
-      let currentRecipes = handleCurrentRecipes(
-        payload,
-        state.filters_and_order
-      );
-      // dffdf
+      let currentRecipes = payload.data;
+      for (let key in payload.filters_and_order) {
+        if (payload.filters_and_order[key] === true) {
+          currentRecipes = filterByDiet(currentRecipes, key);
+          // console.log("salió de filterByDiet", key);
+        }
+      }
+      if (payload.filters_and_order.byOrder.length > 0) {
+        currentRecipes = order(
+          currentRecipes,
+          payload.filters_and_order.byOrder
+        );
+      }
       return {
         ...state,
-        recipes: currentRecipes,
+        filters_and_order: payload.filters_and_order,
         currentRecipes: currentRecipes,
         currentItems: currentRecipes.slice(0, state.itemsPerPage),
         currentPage: 1,
@@ -97,6 +105,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
     }
     case FILTER_RECIPES: {
       let currentRecipes = handleCurrentRecipes(state.recipes, payload);
+      console.log(currentRecipes);
       return {
         ...state,
         filters_and_order: payload,
