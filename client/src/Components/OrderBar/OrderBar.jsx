@@ -1,12 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
 import { orderRecipes } from "../../redux/actions";
+
 import style from "./OrderBar.module.css";
 
 const OrderBar = () => {
-  const dispatch = useDispatch();
   let filters_and_order = useSelector((state) => state.filters_and_order);
+  const dispatch = useDispatch();
 
   const handleOrder = (e) => {
     let obj = {
@@ -22,8 +23,6 @@ const OrderBar = () => {
         <p className={style.order_label}>Ordenar por: </p>
         <select
           className={style.select}
-          name="order"
-          id="order"
           onChange={(e) => handleOrder(e)}
         >
           <option className={style.option} value="orderHigScore">
