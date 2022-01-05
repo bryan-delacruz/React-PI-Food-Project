@@ -65,7 +65,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
       for (let key in payload.filters_and_order) {
         if (payload.filters_and_order[key] === true) {
           currentRecipes = filterByDiet(currentRecipes, key);
-          // console.log("salió de filterByDiet", key);
         }
       }
       if (payload.filters_and_order.byOrder.length > 0) {
@@ -105,7 +104,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
     }
     case FILTER_RECIPES: {
       let currentRecipes = handleCurrentRecipes(state.recipes, payload);
-      console.log(currentRecipes);
       return {
         ...state,
         filters_and_order: payload,

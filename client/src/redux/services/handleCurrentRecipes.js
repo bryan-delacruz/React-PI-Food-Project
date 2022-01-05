@@ -7,8 +7,7 @@ export const handleCurrentRecipes = (recipes, payload) => {
 
   if (payload.byTitle.length > 0) {
     currentRecipes = filterByTitle(currentRecipes, payload.byTitle);
-    // currentRecipes = filterByTitle(currentRecipes, payload.byTitle);
-    console.log("salió de filterByTitle");
+    // console.log("salió de filterByTitle");
   }
 
   for (let key in payload) {
