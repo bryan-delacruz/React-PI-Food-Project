@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import FormCreateRecipeInputs from "../FormCreateRecipeInputs/FormCreateRecipeInputs";
 import FormCreateRecipeDiets from "../FormCreateRecipeDiets/FormCreateRecipeDiets";
 import FormCreateRecipeSteps from "../FormCreateRecipeSteps/FormCreateRecipeSteps";
-import Spinner from "../Spinner/Spinner";
 
 import { createRecipe } from "../../redux/actions";
 
 import style from "./FormCreateRecipe.module.css";
+import Modal from "../Modal/Modal";
 
 const FormCreateRecipe = () => {
-  let loader = useSelector((state) => state.loader);
+  const isModalOpen = useSelector((state) => state.isModalOpen);
   const dispatch = useDispatch();
 
   const [form, setForm] = useState({
@@ -57,50 +57,51 @@ const FormCreateRecipe = () => {
 
   return (
     <main className={`${style.detail_main}`}>
-      {loader.diets === true ? (
-        <div className={`${style.detail_section}`}>
-          <div className={`${style.form} `}>
-            <p className={`${style.form_title} `}>
-              FORMULARIO PARA CREAR RECETA
-            </p>
-            <div className={`${style.flex}`}>
-              <FormCreateRecipeInputs
-                form={form}
-                setForm={setForm}
-                alert={alert}
-                setAlert={setAlert}
-                style={style}
-              />
-              <FormCreateRecipeDiets
-                form={form}
-                setForm={setForm}
-                style={style}
-              />
-              <FormCreateRecipeSteps
-                form={form}
-                setForm={setForm}
-                alert={alert}
-                setAlert={setAlert}
-                style={style}
-              />
-            </div>
-            <button
-              disabled={disabeledSubmit}
-              type="submit"
-              className={style.button}
-              onClick={(e) => handleButton(e)}
-              style={
-                disabeledSubmit
-                  ? { background: "#969696", border: "none" }
-                  : { "": "" }
-              }
-            >
-              Crear
-            </button>
+      <div className={`${style.detail_section}`}>
+        <div className={`${style.form} `}>
+          <p className={`${style.form_title} `}>FORMULARIO PARA CREAR RECETA</p>
+          <div className={`${style.flex}`}>
+            <FormCreateRecipeInputs
+              form={form}
+              setForm={setForm}
+              alert={alert}
+              setAlert={setAlert}
+              style={style}
+            />
+            <FormCreateRecipeDiets
+              form={form}
+              setForm={setForm}
+              style={style}
+            />
+            <FormCreateRecipeSteps
+              form={form}
+              setForm={setForm}
+              alert={alert}
+              setAlert={setAlert}
+              style={style}
+            />
           </div>
+          <button
+            disabled={disabeledSubmit}
+            type="submit"
+            className={style.button}
+            onClick={(e) => handleButton(e)}
+            style={
+              disabeledSubmit
+                ? { background: "#969696", border: "none" }
+                : { "": "" }
+            }
+          >
+            Crear
+          </button>
         </div>
-      ) : (
-        <Spinner height="542" container_spin={true} />
+      </div>
+      {isModalOpen && (
+        <Modal
+          setForm={setForm}
+          title="Message"
+          message={`The recipe ${form.title} was successfully created!`}
+        />
       )}
     </main>
   );
