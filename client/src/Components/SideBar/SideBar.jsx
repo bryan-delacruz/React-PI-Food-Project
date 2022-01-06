@@ -34,26 +34,25 @@ const SideBar = () => {
     <aside className={style.aside}>
       <form className={style.dieta_filter}>
         <p className={style.dieta_title}>Diets</p>
-        {diets.length > 0
-          ? diets.map((e, i) => {
-              let prop = e.replaceAll(" ", "_");
-              return (
-                <div key={i} className={style.flex}>
-                  <input
-                    className={style.input}
-                    id={e}
-                    type="checkbox"
-                    name={prop}
-                    checked={filters_and_order[prop]}
-                    onChange={(e) => handleCheck(e)}
-                  />
-                  <label className={style.label} htmlFor={e}>
-                    {e}
-                  </label>
-                </div>
-              );
-            })
-          : null}
+        {diets.length > 0 &&
+          diets.map((e, i) => {
+            let prop = e.replaceAll(" ", "_");
+            return (
+              <div key={i} className={style.flex}>
+                <input
+                  className={style.input}
+                  id={e}
+                  type="checkbox"
+                  name={prop}
+                  checked={filters_and_order[prop]}
+                  onChange={(e) => handleCheck(e)}
+                />
+                <label className={style.label} htmlFor={e}>
+                  {e}
+                </label>
+              </div>
+            );
+          })}
       </form>
       <button
         type="button"
