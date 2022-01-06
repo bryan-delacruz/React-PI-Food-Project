@@ -99,6 +99,7 @@ const FormCreateRecipe = () => {
       {isModalOpen && (
         <Modal
           setForm={setForm}
+          setAlert={setAlert}
           title="Message"
           message={`The recipe ${form.title} was successfully created!`}
         />
