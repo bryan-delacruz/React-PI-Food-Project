@@ -1,12 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { getRecipes, setIsModalOpen } from "../../redux/actions";
 
 import style from "./Modal.module.css";
 
-const Modal = ({ setForm, setAlert, title, message }) => {
+const Modal = ({ setForm, setAlert, title }) => {
+  const isModalOpen = useSelector((state) => state.isModalOpen);
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -27,17 +28,18 @@ const Modal = ({ setForm, setAlert, title, message }) => {
       steps: false,
     });
     dispatch(getRecipes());
-    dispatch(setIsModalOpen(false));
+    dispatch(setIsModalOpen({ val: false, msg: "" }));
     if (e.target.name === "home") {
       navigate("/home");
     }
   };
+
   return (
     <div className={style.modal}>
       <div className={style.overlay}></div>
       <div className={style.modal_content}>
         <h2>{title}</h2>
-        <p>{message}</p>
+        <p>{isModalOpen.msg}</p>
         <div className={style.flex}>
           <button name="create" onClick={(e) => onClick(e)}>
             Create a new recipe

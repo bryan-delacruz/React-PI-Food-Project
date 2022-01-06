@@ -42,9 +42,19 @@ export const createRecipe = (data) => async (dispatch) => {
   try {
     await axios.post(`/recipe`, data);
     console.log("RECIPE", "Se crea receta en la BD");
-    return dispatch({ type: SET_IS_MODAL_OPEN, payload: true });
+    return dispatch({
+      type: SET_IS_MODAL_OPEN,
+      payload: {
+        val: true,
+        msg: `The recipe ${data.title} was created successfully!`,
+      },
+    });
   } catch (error) {
     console.log(error);
+    return dispatch({
+      type: SET_IS_MODAL_OPEN,
+      payload: { val: true, msg: "Error, We can't create the recipe" },
+    });
   }
 };
 export const setIsModalOpen = (data) => {

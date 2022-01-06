@@ -5,7 +5,7 @@ import FormCreateRecipeInputs from "../FormCreateRecipeInputs/FormCreateRecipeIn
 import FormCreateRecipeDiets from "../FormCreateRecipeDiets/FormCreateRecipeDiets";
 import FormCreateRecipeSteps from "../FormCreateRecipeSteps/FormCreateRecipeSteps";
 
-import { createRecipe } from "../../redux/actions";
+import { createRecipe, setIsModalOpen } from "../../redux/actions";
 
 import style from "./FormCreateRecipe.module.css";
 import Modal from "../Modal/Modal";
@@ -13,7 +13,6 @@ import Modal from "../Modal/Modal";
 const FormCreateRecipe = () => {
   const isModalOpen = useSelector((state) => state.isModalOpen);
   const dispatch = useDispatch();
-
   const [form, setForm] = useState({
     title: "",
     summary: "",
@@ -48,6 +47,7 @@ const FormCreateRecipe = () => {
       healthScore: form.healthScore === "" ? null : form.healthScore,
       steps: newsteps === "" ? null : newsteps,
     };
+    dispatch(setIsModalOpen(true));
     dispatch(createRecipe(recipe));
   };
   const disabeledSubmit = useMemo(() => {
@@ -96,13 +96,8 @@ const FormCreateRecipe = () => {
           </button>
         </div>
       </div>
-      {isModalOpen && (
-        <Modal
-          setForm={setForm}
-          setAlert={setAlert}
-          title="Message"
-          message={`The recipe ${form.title} was successfully created!`}
-        />
+      {isModalOpen.val && (
+        <Modal setForm={setForm} setAlert={setAlert} title="Message" />
       )}
     </main>
   );

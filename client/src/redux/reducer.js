@@ -18,7 +18,7 @@ const initialState = {
   recipes: [],
   recipeById: {},
   currentRecipes: [],
-  isModalOpen: false,
+  isModalOpen: { val: false, msg: "" },
 
   filters_and_order: {
     byTitle: "",
