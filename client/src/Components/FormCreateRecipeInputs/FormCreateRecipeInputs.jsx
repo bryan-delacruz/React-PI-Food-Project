@@ -7,7 +7,8 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
     if (
       (e.target.name === "spoonacularScore" ||
         e.target.name === "healthScore") &&
-      (e.target.value < 1 || e.target.value > 100)
+      (e.target.value < 1 || e.target.value > 100) &&
+      e.target.value.length !== 0
     ) {
       setAlert({ ...alert, [e.target.name]: true });
     } else if (
@@ -44,9 +45,7 @@ const FormCreateRecipeInputs = ({ form, setForm, alert, setAlert, style }) => {
           onChange={(e) => handleInputs(e)}
           value={form.title}
         />
-        {alert.title === true && (
-          <Alert text={`Mandatory Field`} width={140} />
-        )}
+        {alert.title === true && <Alert text={`Mandatory Field`} width={140} />}
       </div>
       <div className={style.mb_20}>
         <textarea
