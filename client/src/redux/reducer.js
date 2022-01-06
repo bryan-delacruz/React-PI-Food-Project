@@ -7,6 +7,7 @@ import {
   SET_LOADER,
   GET_RECIPE_BY_ID,
   GET_RECIPES_BY_NAME,
+  SET_IS_MODAL_OPEN,
 } from "./actions";
 import { filterByDiet } from "./services/filterByDiet";
 
@@ -17,6 +18,7 @@ const initialState = {
   recipes: [],
   recipeById: {},
   currentRecipes: [],
+  isModalOpen: false,
 
   filters_and_order: {
     byTitle: "",
@@ -79,6 +81,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         currentRecipes: currentRecipes,
         currentItems: currentRecipes.slice(0, state.itemsPerPage),
         currentPage: 1,
+      };
+    }
+
+    case SET_IS_MODAL_OPEN: {
+      return {
+        ...state,
+        isModalOpen: payload,
       };
     }
     case GET_DIETS: {

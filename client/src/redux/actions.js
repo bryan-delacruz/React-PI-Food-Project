@@ -3,6 +3,7 @@ export const GET_RECIPES = "GET_RECIPES";
 export const GET_DIETS = "GET_DIETS";
 export const GET_RECIPE_BY_ID = "GET_RECIPE_BY_ID";
 export const GET_RECIPES_BY_NAME = "GET_RECIPES_BY_NAME";
+export const SET_IS_MODAL_OPEN = "SET_IS_MODAL_OPEN";
 export const FILTER_RECIPES = "FILTER_RECIPES";
 export const ORDER_RECIPES = "ORDER_RECIPES";
 export const SET_LOADER = "SET_LOADER";
@@ -41,16 +42,13 @@ export const createRecipe = (data) => async (dispatch) => {
   try {
     await axios.post(`/recipe`, data);
     console.log("RECIPE", "Se crea receta en la BD");
+    return dispatch({ type: SET_IS_MODAL_OPEN, payload: true });
   } catch (error) {
     console.log(error);
   }
-  try {
-    let { data } = await axios.get(`/recipes`);
-    console.log("RECIPES", "Se recibe data de la API luego de que se creara la receta en la BD");
-    return dispatch({ type: GET_RECIPES, payload: data });
-  } catch (error) {
-    console.log(error);
-  }
+};
+export const setIsModalOpen = (data) => {
+  return { type: SET_IS_MODAL_OPEN, payload: data };
 };
 export const getRecipesByName = (filters_and_order) => async (dispatch) => {
   try {
