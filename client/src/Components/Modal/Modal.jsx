@@ -6,9 +6,10 @@ import { getRecipes, setIsModalOpen } from "../../redux/actions";
 
 import style from "./Modal.module.css";
 
-const Modal = ({ setForm, title, message }) => {
+const Modal = ({ setForm, setAlert, title, message }) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
+
   const onClick = (e) => {
     setForm({
       title: "",
@@ -17,6 +18,13 @@ const Modal = ({ setForm, title, message }) => {
       healthScore: "",
       diets: [],
       steps: [],
+    });
+    setAlert({
+      title: true,
+      summary: true,
+      spoonacularScore: false,
+      healthScore: false,
+      steps: false,
     });
     dispatch(getRecipes());
     dispatch(setIsModalOpen(false));
