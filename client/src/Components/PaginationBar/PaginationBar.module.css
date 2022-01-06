@@ -20,7 +20,7 @@
 .button_arrow:hover {
   background-color: gainsboro;
 }
-.button_arrow img{
+.button_arrow img {
   padding-top: 3px;
   width: 13px;
 }
@@ -48,21 +48,21 @@
   border-radius: 0.25em 0 0 0.25em;
 }
 .nav_input:focus {
-  border: 1px solid #8fca00;
+  border: 1px solid var(--primaryColor);
 }
 .nav_button {
   height: 30px;
   font-size: 14px;
   width: 30px;
-  border: 1px solid #8fca00;
+  border: 1px solid var(--primaryColor);
   border-radius: 0 6px 6px 0;
   border-left: none;
   color: #ffff;
-  background-color: #8fca00;
+  background-color: var(--primaryColor);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, border 0.2s;
 }
 .nav_button:hover,
 .nav_button:active {
-  background-color: #699600;
+  background-color: var(--secundaryColor);
 }
