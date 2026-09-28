@@ -8,6 +8,8 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 let sequelize = process.env.DATABASE_URL
   ? new Sequelize(process.env.DATABASE_URL, {
       dialect: "postgres",
+      // Explicit driver so the Vercel bundle includes it (Sequelize loads it dynamically).
+      dialectModule: require("pg"),
       logging: false,
       dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
       pool: { max: 2, min: 0, idle: 10000 },
