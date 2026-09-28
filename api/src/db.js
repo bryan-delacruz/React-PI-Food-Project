@@ -4,8 +4,15 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-let sequelize =
-  process.env.NODE_ENV === "production"
+// DATABASE_URL (e.g. Neon) takes precedence; the other options are the original setups.
+let sequelize = process.env.DATABASE_URL
+  ? new Sequelize(process.env.DATABASE_URL, {
+      dialect: "postgres",
+      logging: false,
+      dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+      pool: { max: 2, min: 0, idle: 10000 },
+    })
+  : process.env.NODE_ENV === "production"
     ? new Sequelize({
         database: DB_NAME,
         dialect: "postgres",

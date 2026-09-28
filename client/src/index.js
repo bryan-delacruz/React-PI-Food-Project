@@ -10,7 +10,11 @@ import "./css/index.css";
 
 require("dotenv").config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL =
+  process.env.REACT_APP_API ||
+  (process.env.NODE_ENV === "production"
+    ? "https://pi-food-api-bdlc.vercel.app"
+    : "http://localhost:3001");
 
 ReactDOM.render(
   <Provider store={store}>
