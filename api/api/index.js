@@ -3,9 +3,19 @@
 const server = require("../src/app.js");
 const { conn } = require("../src/db.js");
 
-const ready = conn.sync({ force: false });
+let ready = null;
 
 module.exports = async (req, res) => {
-  await ready;
+  try {
+    // Retry on the next request if a cold start failed (e.g. two instances syncing at once).
+    ready = ready || conn.sync({ force: false });
+    await ready;
+  } catch (error) {
+    ready = null;
+    console.error(error);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.statusCode = 503;
+    return res.end("Database is starting, please retry.");
+  }
   return server(req, res);
 };
